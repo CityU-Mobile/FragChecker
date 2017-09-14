@@ -51,7 +51,7 @@ import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int PERMISSIONS_CODE = 1001; //权限通知回调标识位
+    private static final int PERMISSIONS_CODE = 1001;
 
     private TextView textView;
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         initBarChart(barChart);
         initBarChart(averageBarChart);
 
-        // install some necessary commands, ex mkair e4defrag,
+        // install some necessary commands, ex. mkdir e4defrag,
         startService(new Intent(this, MkdirService.class));
         startService(new Intent(this, InstallE4DefragService.class));
         startService(new Intent(this, InstallFindService.class));
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initPermissionsAndGetUniqueUserID(String ... permissions){
 
-        ArrayList<String> permissionList = new ArrayList<>();//获取写入到sdcard的权限
+        ArrayList<String> permissionList = new ArrayList<>();
 
         for (String p : permissions) {
             if(ContextCompat.checkSelfPermission(this, p) != PackageManager.PERMISSION_GRANTED){
@@ -173,8 +173,8 @@ public class MainActivity extends AppCompatActivity {
                     TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
                     try {
 
-                        PublicParams.UNIQUEID = telephonyManager.getDeviceId(); // 用来作为用户的唯一id
-                        if(PublicParams.UNIQUEID == null || PublicParams.UNIQUEID.equals("")){ //如果获取不到，尝试获取收集号码
+                        PublicParams.UNIQUEID = telephonyManager.getDeviceId();
+                        if(PublicParams.UNIQUEID == null || PublicParams.UNIQUEID.equals("")){
                             PublicParams.UNIQUEID = telephonyManager.getLine1Number();
                         }
 
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
         mBarChart.setDrawGridBackground(false);
         mBarChart.setDescription("");
         mBarChart.getXAxis().setDrawGridLines(false);
-        mBarChart.getXAxis().setDrawLabels(true);//是否显示X轴数值
+        mBarChart.getXAxis().setDrawLabels(true);
         mBarChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
 
         mBarChart.animateXY(2000,3000);
